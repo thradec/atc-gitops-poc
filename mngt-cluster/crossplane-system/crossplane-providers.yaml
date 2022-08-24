@@ -1,0 +1,20 @@
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: crossplane-provider-aws
+spec:
+  package: crossplane/provider-aws:v0.24.1
+---
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: crossplane-provider-helm
+spec:
+  package: crossplane/provider-helm:v0.9.0
+---
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: crossplane-provider-kubernetes
+spec:
+  package: crossplane/provider-kubernetes:v0.4.0
