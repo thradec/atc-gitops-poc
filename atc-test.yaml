@@ -11,6 +11,6 @@ spec:
   parameters:
     version: "1.23"
     nodeSize: medium
-    minNodeCount: 3
+    minNodeCount: 2
   writeConnectionSecretToRef:
     name: atc-test
