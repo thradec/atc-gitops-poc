@@ -1,0 +1,16 @@
+apiVersion: devopstoolkitseries.com/v1alpha1
+kind: ClusterClaim
+metadata:
+  name: atc-test
+spec:
+  id: atc-test
+  compositionSelector:
+    matchLabels:
+      provider: aws
+      cluster: eks
+  parameters:
+    version: "1.23"
+    nodeSize: medium
+    minNodeCount: 3
+  writeConnectionSecretToRef:
+    name: atc-test
