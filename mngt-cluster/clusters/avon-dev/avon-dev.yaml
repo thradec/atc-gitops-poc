@@ -1,0 +1,17 @@
+apiVersion: devopstoolkitseries.com/v1alpha1
+kind: ClusterClaim
+metadata:
+  name: avon-dev
+  namespace: avon-dev
+spec:
+  id: avon-dev
+  compositionSelector:
+    matchLabels:
+      provider: aws
+      cluster: eks
+  parameters:
+    version: "1.22"
+    nodeSize: small
+    minNodeCount: 2
+  writeConnectionSecretToRef:
+    name: avon-dev

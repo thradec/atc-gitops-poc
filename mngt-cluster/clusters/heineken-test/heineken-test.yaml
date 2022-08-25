@@ -1,0 +1,17 @@
+apiVersion: devopstoolkitseries.com/v1alpha1
+kind: ClusterClaim
+metadata:
+  name: heineken-test
+  namespace: heineken-test
+spec:
+  id: heineken-test
+  compositionSelector:
+    matchLabels:
+      provider: aws
+      cluster: eks
+  parameters:
+    version: "1.23"
+    nodeSize: small
+    minNodeCount: 3
+  writeConnectionSecretToRef:
+    name: heineken-test
