@@ -13,5 +13,8 @@ spec:
     repoURL: https://github.com/thradec/atc-gitops-poc.git
     targetRevision: HEAD
   syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
     syncOptions:
       - CreateNamespace=true
