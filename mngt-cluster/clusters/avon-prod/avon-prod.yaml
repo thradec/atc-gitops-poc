@@ -1,16 +1,17 @@
 apiVersion: devopstoolkitseries.com/v1alpha1
 kind: ClusterClaim
 metadata:
-  name: atc-test
+  name: avon-prod
+  namespace: avon-prod
 spec:
-  id: atc-test
+  id: avon-prod
   compositionSelector:
     matchLabels:
       provider: aws
       cluster: eks
   parameters:
-    version: "1.23"
-    nodeSize: medium
+    version: "1.22"
+    nodeSize: small
     minNodeCount: 2
   writeConnectionSecretToRef:
-    name: atc-test
+    name: avon-prod

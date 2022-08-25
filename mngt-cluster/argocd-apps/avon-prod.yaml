@@ -1,20 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: crossplane
+  name: avon-prod
   namespace: argocd
 spec:
   destination:
-    namespace: crossplane-system
+    namespace: avon-prod
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: mngt-cluster/crossplane
+    path: mngt-cluster/clusters/avon-prod
     repoURL: https://github.com/thradec/atc-gitops-poc.git
     targetRevision: HEAD
   syncPolicy:
     automated:
-      prune: true
-      selfHeal: true
+      prune: false
+      selfHeal: false
     syncOptions:
       - CreateNamespace=true
