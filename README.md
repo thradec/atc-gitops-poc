@@ -9,4 +9,6 @@ $ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.p
 $ kubectl -n argocd port-forward svc/argocd-server 8080:443
 
 $ kubectl -n crossplane-system create secret generic aws-creds --from-file creds=./aws-creds.conf
+
+$ kubectl -n argocd patch configmap/argocd-cm --type merge -p '{"data":{"application.resourceTrackingMethod":"annotation"}}'
 ```
