@@ -12,6 +12,6 @@ spec:
   parameters:
     version: "1.23"
     nodeSize: small
-    minNodeCount: 3
+    minNodeCount: 2
   writeConnectionSecretToRef:
     name: heineken-test

@@ -10,7 +10,7 @@ spec:
       provider: aws
       cluster: eks
   parameters:
-    version: "1.22"
+    version: "1.23"
     nodeSize: small
     minNodeCount: 2
   writeConnectionSecretToRef:

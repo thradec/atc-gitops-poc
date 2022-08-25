@@ -2,13 +2,16 @@
 
 ```
 $ kubectl create namespace argocd
+
 $ kubectl apply -n argocd -f mngt-cluster/argocd/argocd.yaml
-$ kubectl apply -n argocd -f mngt-cluster/argocd-apps/crossplane.yaml
 
-$ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
-$ kubectl -n argocd port-forward svc/argocd-server 8080:443
+$ kubectl patch configmap/argocd-cm --type merge -p '{"data":{"application.resourceTrackingMethod":"annotation"}}' -n argocd
 
-$ kubectl -n crossplane-system create secret generic aws-creds --from-file creds=./aws-creds.conf
+$ kubectl apply -n argocd -f mngt-cluster/argocd-apps/app-of-apps.yaml
 
-$ kubectl -n argocd patch configmap/argocd-cm --type merge -p '{"data":{"application.resourceTrackingMethod":"annotation"}}'
+$ kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d; echo
+
+$ kubectl port-forward svc/argocd-server 8080:443 -n argocd
+
+$ kubectl create secret generic aws-creds --from-file creds=./aws-creds.conf -n crossplane-system
 ```
